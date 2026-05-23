@@ -28,7 +28,7 @@ function EditArticlePage() {
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState(CATEGORIES[0].slug);
+  const [category, setCategory] = useState<string>(CATEGORIES[0].slug);
   const [coverUrl, setCoverUrl] = useState("");
   const [published, setPublished] = useState(false);
 
