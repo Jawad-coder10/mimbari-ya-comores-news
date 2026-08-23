@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { createArticle } from "@/lib/articles.functions";
 import { CATEGORIES } from "@/lib/categories";
 import { slugify } from "@/lib/slugify";
+import { CoverImageUpload } from "@/components/CoverImageUpload";
 import { toast } from "sonner";
 import { Loader2, ChevronLeft } from "lucide-react";
 
