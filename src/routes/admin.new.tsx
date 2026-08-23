@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { createArticle } from "@/lib/articles.functions";
 import { CATEGORIES } from "@/lib/categories";
 import { slugify } from "@/lib/slugify";
+import { CoverImageUpload } from "@/components/CoverImageUpload";
 import { toast } from "sonner";
 import { Loader2, ChevronLeft } from "lucide-react";
 
@@ -136,13 +137,8 @@ export function ArticleForm(props: {
               </select>
             </Field>
 
-            <Field label="Image de couverture (URL)" hint="URL d'une image hébergée en ligne.">
-              <input
-                type="url" maxLength={500}
-                value={props.coverUrl} onChange={(e) => props.setCoverUrl(e.target.value)}
-                placeholder="https://…"
-                className="w-full border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-              />
+            <Field label="Image de couverture" hint="Fichier JPEG ou PNG, 5 Mo maximum.">
+              <CoverImageUpload value={props.coverUrl} onChange={props.setCoverUrl} />
             </Field>
 
             <label className="flex items-center gap-2 cursor-pointer">
