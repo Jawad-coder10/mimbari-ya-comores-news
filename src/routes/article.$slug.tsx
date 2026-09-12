@@ -22,10 +22,10 @@ export const Route = createFileRoute("/article/$slug")({
   },
   head: ({ loaderData }) => {
     const a = loaderData?.article;
-    if (!a) return { meta: [{ title: "Article introuvable — Mimbari Ya Comores" }] };
+    if (!a) return { meta: [{ title: "Article introuvable Mimbari Ya Comores" }] };
     return {
       meta: [
-        { title: `${a.title} — Mimbari Ya Comores` },
+        { title: `${a.title} Mimbari Ya Comores` },
         { name: "description", content: a.excerpt ?? a.title },
         { property: "og:title", content: a.title },
         { property: "og:description", content: a.excerpt ?? "" },

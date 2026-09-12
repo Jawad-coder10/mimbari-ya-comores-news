@@ -9,7 +9,7 @@ import { Loader2 } from "lucide-react";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Connexion — Mimbari Ya Comores" },
+      { title: "Connexion Mimbari Ya Comores" },
       { name: "robots", content: "noindex" },
     ],  
   }),

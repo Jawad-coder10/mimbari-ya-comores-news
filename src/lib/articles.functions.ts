@@ -186,11 +186,18 @@ export const getArticleByIdAdmin = createServerFn({ method: "GET" })
 export const isCurrentUserAdmin = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const { data } = await supabaseAdmin
+    const { data, error } = await supabaseAdmin
       .from("user_roles")
       .select("role")
       .eq("user_id", context.userId)
       .eq("role", "admin")
       .maybeSingle();
+
+    if (error) {
+      throw new Error(
+        `Impossible de vérifier les droits administrateur : ${error.message}`,
+      );
+    }
+
     return { isAdmin: !!data };
   });

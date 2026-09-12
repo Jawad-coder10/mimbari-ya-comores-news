@@ -15,8 +15,8 @@ const articlesQueryOptions = queryOptions({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mimbari Ya Comores — Le média des Comores" },
-      { property: "og:title", content: "Mimbari Ya Comores — Le média des Comores" },
+      { title: "Mimbari Ya Comores Le média des Comores" },
+      { property: "og:title", content: "Mimbari Ya Comores Le média des Comores" },
       {
         property: "og:description",
         content: "L'actualité indépendante des Comores : politique, société, économie, culture, sport.",
@@ -52,7 +52,7 @@ function HomePage() {
             L'information<br />au cœur de l'archipel
           </h1>
           <p className="mt-6 max-w-xl text-lg text-primary-foreground/85 leading-relaxed">
-            Politique, société, culture, sport — chaque jour, Mimbari Ya Comores éclaire
+            Politique, société, culture, sport chaque jour, Mimbari Ya Comores éclaire
             l'actualité des Comores avec rigueur et indépendance.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

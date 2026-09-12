@@ -83,7 +83,7 @@
 :root {
   --radius: 0.375rem;
 
-  /* Mimbari Ya Comores — vert profond éditorial */
+  /* Mimbari Ya Comores vert profond éditorial */
   --background: oklch(0.985 0.005 100);
   --foreground: oklch(0.18 0.03 155);
 

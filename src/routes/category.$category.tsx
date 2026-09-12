@@ -24,9 +24,9 @@ export const Route = createFileRoute("/category/$category")({
     const label = getCategoryLabel(params.category);
     return {
       meta: [
-        { title: `${label} — Mimbari Ya Comores` },
+        { title: `${label} Mimbari Ya Comores` },
         { name: "description", content: `Toute l'actualité ${label} aux Comores par Mimbari Ya Comores.` },
-        { property: "og:title", content: `${label} — Mimbari Ya Comores` },
+        { property: "og:title", content: `${label} Mimbari Ya Comores` },
       ],
       links: [{ rel: "canonical", href: `/category/${params.category}` }],
     };
@@ -51,7 +51,7 @@ function CategoryPage() {
         {data.articles.length === 0 ? (
           <div className="text-center py-24 border border-dashed border-border">
             <p className="font-serif text-2xl text-primary">Aucun article pour le moment</p>
-            <p className="mt-2 text-muted-foreground">Revenez bientôt — la rédaction prépare la suite.</p>
+            <p className="mt-2 text-muted-foreground">Revenez bientôt la rédaction prépare la suite.</p>
             <Link to="/" className="mt-6 inline-block text-primary underline underline-offset-4">
               Retour à l'accueil
             </Link>

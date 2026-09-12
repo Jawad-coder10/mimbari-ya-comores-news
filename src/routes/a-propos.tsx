@@ -5,9 +5,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
-      { title: "À propos — Mimbari Ya Comores" },
+      { title: "À propos: Mimbari Ya Comores" },
       { name: "description", content: "Mimbari Ya Comores, le média indépendant des Comores. Notre mission, notre équipe, notre engagement." },
-      { property: "og:title", content: "À propos — Mimbari Ya Comores" },
+      { property: "og:title", content: "À propos: Mimbari Ya Comores" },
     ],
     links: [{ rel: "canonical", href: "/a-propos" }],
   }),
@@ -29,7 +29,7 @@ function AboutPage() {
 
         <div className="article-body mt-10">
           <p>
-            Mimbari Ya Comores — littéralement « la tribune des Comores » — est un média
+            Mimbari Ya Comores littéralement « la tribune des Comores » est un média
             indépendant qui couvre l'actualité de l'archipel : Grande Comore, Anjouan,
             Mohéli et Mayotte.
           </p>

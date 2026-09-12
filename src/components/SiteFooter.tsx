@@ -9,7 +9,7 @@ export function SiteFooter() {
           <div className="font-serif text-2xl">Mimbari Ya Comores</div>
           <p className="mt-3 text-sm text-primary-foreground/80 leading-relaxed">
             L'information indépendante au cœur de l'archipel.
-            Politique, société, culture — chaque jour, l'actualité des Comores.
+            Politique, société, culture chaque jour, l'actualité des Comores.
           </p>
         </div>
         <div>

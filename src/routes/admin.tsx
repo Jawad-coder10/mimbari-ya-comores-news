@@ -10,7 +10,7 @@ import { Loader2, LogOut, FileText, PlusCircle } from "lucide-react";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Administration — Mimbari Ya Comores" },
+      { title: "Administration Mimbari Ya Comores" },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -20,7 +20,8 @@ export const Route = createFileRoute("/admin")({
 function AdminLayout() {
   const navigate = useNavigate();
   const checkAdmin = useServerFn(isCurrentUserAdmin);
-  const [state, setState] = useState<"checking" | "ok" | "denied">("checking");
+  const [state, setState] = useState<"checking" | "ok" | "denied" | "error">("checking");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -33,9 +34,13 @@ function AdminLayout() {
       try {
         const { isAdmin } = await checkAdmin();
         if (!mounted) return;
+        setErrorMessage(null);
         setState(isAdmin ? "ok" : "denied");
-      } catch {
-        if (mounted) setState("denied");
+      } catch (error) {
+        if (mounted) {
+          setErrorMessage(error instanceof Error ? error.message : "Erreur inconnue");
+          setState("error");
+        }
       }
     })();
     return () => { mounted = false; };
@@ -62,6 +67,28 @@ function AdminLayout() {
           Votre compte n'a pas les droits administrateur. Seul l'administrateur de
           Mimbari Ya Comores peut publier des articles.
         </p>
+        <div className="mt-6 flex gap-3">
+          <Link to="/" className="text-primary underline underline-offset-4">Retour à l'accueil</Link>
+          <button onClick={handleLogout} className="text-muted-foreground hover:text-primary underline underline-offset-4">
+            Se déconnecter
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (state === "error") {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+        <h1 className="font-serif text-4xl text-primary">Vérification de l’accès administrateur impossible</h1>
+        <p className="mt-3 text-muted-foreground max-w-md">
+          Le serveur Supabase n’a pas pu vérifier vos droits administrateur.
+        </p>
+        {errorMessage && (
+          <p className="mt-3 max-w-xl rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive">
+            {errorMessage}
+          </p>
+        )}
         <div className="mt-6 flex gap-3">
           <Link to="/" className="text-primary underline underline-offset-4">Retour à l'accueil</Link>
           <button onClick={handleLogout} className="text-muted-foreground hover:text-primary underline underline-offset-4">
