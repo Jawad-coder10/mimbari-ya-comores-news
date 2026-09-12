@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { isCurrentUserAdmin } from "@/lib/articles.functions";
 import { SiteFooter } from "@/components/SiteFooter";
+import heroImage from "@/assets/hero-comores.jpg";
 import { Loader2, LogOut, FileText, PlusCircle } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
@@ -76,9 +77,11 @@ function AdminLayout() {
       <header className="border-b border-border bg-card">
         <div className="container-prose flex items-center justify-between py-4">
           <Link to="/admin" className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-primary-foreground font-serif">
-              M
-            </div>
+            <img
+              src={heroImage}
+              alt="Mimbari Ya Comores"
+              className="h-9 w-9 rounded-full object-cover ring-1 ring-border"
+            />
             <div>
               <div className="font-serif text-lg text-primary leading-tight">Mimbari Ya Comores</div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -97,7 +100,7 @@ function AdminLayout() {
             </Link>
             <Link
               to="/admin/new"
-              className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-3 py-2 hover:bg-primary-soft transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-3 py-2 hover:bg-primary-soft transition-colors"
             >
               <PlusCircle className="h-4 w-4" /> Nouvel article
             </Link>

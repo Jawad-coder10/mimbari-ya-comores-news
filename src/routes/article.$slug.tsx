@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getCategoryLabel } from "@/lib/categories";
 import { getOrCreateSessionId } from "@/lib/session";
-import { Eye, ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 const articleQuery = (slug: string) =>
   queryOptions({
@@ -86,7 +86,7 @@ function ArticlePage() {
         <article>
           {/* Cover */}
           {article.cover_image_url && (
-            <div className="w-full aspect-[21/9] bg-muted overflow-hidden">
+            <div className="w-full aspect-[21/9] overflow-hidden rounded-[24px] bg-muted">
               <img
                 src={article.cover_image_url}
                 alt={article.title}
@@ -118,11 +118,6 @@ function ArticlePage() {
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-wider text-muted-foreground border-y border-border py-3">
               <span>Mimbari Ya Comores</span>
               {date && <><span className="h-1 w-1 rounded-full bg-border" /><span>{date}</span></>}
-              <span className="h-1 w-1 rounded-full bg-border" />
-              <span className="flex items-center gap-1.5">
-                <Eye className="h-3.5 w-3.5" />
-                {article.view_count.toLocaleString("fr-FR")} {article.view_count > 1 ? "vues" : "vue"}
-              </span>
             </div>
 
             <div className="article-body mt-10 whitespace-pre-wrap">

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { CATEGORIES } from "@/lib/categories";
+import heroImage from "@/assets/hero-comores.jpg";
 import { Menu, X } from "lucide-react";
 
 export function SiteHeader() {
@@ -20,9 +21,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container-prose flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-primary text-primary-foreground font-serif text-xl">
-            M
-          </div>
+          <img
+            src={heroImage}
+            alt="Mimbari Ya Comores"
+            className="h-10 w-10 rounded-full object-cover ring-1 ring-border"
+          />
           <div className="leading-tight">
             <div className="font-serif text-lg md:text-xl text-primary">Mimbari Ya Comores</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -45,7 +48,7 @@ export function SiteHeader() {
           ))}
           <Link
             to={isAuthed ? "/admin" : "/login"}
-            className="ml-2 inline-flex items-center rounded-sm border border-primary px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            className="ml-2 inline-flex items-center rounded-full border border-primary px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
           >
             {isAuthed ? "Espace admin" : "Connexion"}
           </Link>
@@ -77,7 +80,7 @@ export function SiteHeader() {
             <Link
               to={isAuthed ? "/admin" : "/login"}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center rounded-sm border border-primary px-3 py-2 text-xs font-semibold uppercase tracking-wider text-primary"
+              className="mt-2 inline-flex items-center rounded-full border border-primary px-3 py-2 text-xs font-semibold uppercase tracking-wider text-primary"
             >
               {isAuthed ? "Espace admin" : "Connexion"}
             </Link>

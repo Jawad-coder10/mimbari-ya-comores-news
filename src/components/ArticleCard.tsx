@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Eye } from "lucide-react";
 import { getCategoryLabel } from "@/lib/categories";
 import type { ArticleListItem } from "@/lib/articles.functions";
 
@@ -19,7 +18,7 @@ export function ArticleCard({ article, large = false }: { article: ArticleListIt
       params={{ slug: article.slug }}
       className="group block"
     >
-      <article className="flex flex-col h-full">
+      <article className="flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-card/50 shadow-sm transition-shadow duration-200 group-hover:shadow-md">
         <div className={`relative overflow-hidden bg-muted ${large ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
           {article.cover_image_url ? (
             <img
@@ -34,8 +33,8 @@ export function ArticleCard({ article, large = false }: { article: ArticleListIt
             </div>
           )}
         </div>
-        <div className="pt-4 flex-1 flex flex-col">
-          <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold">
+        <div className={`pt-4 flex-1 flex flex-col ${large ? "items-center text-center px-5 md:px-8" : ""}`}>
+          <div className={`flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-primary font-semibold ${large ? "justify-center" : ""}`}>
             <span>{getCategoryLabel(article.category)}</span>
             <span className="h-1 w-1 rounded-full bg-border" />
             <span className="text-muted-foreground font-medium tracking-wider">
@@ -46,14 +45,10 @@ export function ArticleCard({ article, large = false }: { article: ArticleListIt
             {article.title}
           </h3>
           {article.excerpt && (
-            <p className="mt-2 text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+            <p className={`mt-2 text-sm text-muted-foreground leading-relaxed ${large ? "max-w-3xl text-center" : "line-clamp-2"}`}>
               {article.excerpt}
             </p>
           )}
-          <div className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Eye className="h-3.5 w-3.5" />
-            <span>{article.view_count.toLocaleString("fr-FR")} {article.view_count > 1 ? "vues" : "vue"}</span>
-          </div>
         </div>
       </article>
     </Link>

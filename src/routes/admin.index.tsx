@@ -63,7 +63,7 @@ function AdminDashboard() {
           </Link>
         </div>
       ) : (
-        <div className="bg-card border border-border divide-y divide-border">
+        <div className="overflow-hidden rounded-[20px] border border-border bg-card divide-y divide-border">
           {articles.map((a: any) => (
             <div key={a.id} className="p-5 flex flex-col sm:flex-row sm:items-center gap-4 hover:bg-secondary/40">
               <div className="flex-1 min-w-0">
@@ -116,7 +116,7 @@ function AdminDashboard() {
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="bg-card border border-border p-5">
+    <div className="rounded-[20px] border border-border bg-card p-5">
       <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{label}</div>
       <div className="mt-1 font-serif text-4xl text-primary">{value.toLocaleString("fr-FR")}</div>
     </div>

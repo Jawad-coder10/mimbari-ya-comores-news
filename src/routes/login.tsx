@@ -11,7 +11,7 @@ export const Route = createFileRoute("/login")({
     meta: [
       { title: "Connexion — Mimbari Ya Comores" },
       { name: "robots", content: "noindex" },
-    ],
+    ],  
   }),
   component: LoginPage,
 });
